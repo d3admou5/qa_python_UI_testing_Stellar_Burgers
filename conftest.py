@@ -19,4 +19,3 @@ def test_user():
         "email": Credentials.email,
         "password": Credentials.password,
     }
-
