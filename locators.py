@@ -37,5 +37,4 @@ class ConstructorPageLocators:
     BUNS_TAB = (By.XPATH, "//span[text()='Булки']")
     SAUCES_TAB = (By.XPATH, "//span[text()='Соусы']")
     FILLINGS_TAB = (By.XPATH, "//span[text()='Начинки']")
-
     ACTIVE_TAB = (By.XPATH, "//div[contains(@class, 'tab_tab_type_current')]//span")
