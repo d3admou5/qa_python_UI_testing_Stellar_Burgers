@@ -40,4 +40,4 @@ def test_short_password_error(driver):
     except TimeoutException:
         redirected = False
 
-    assert not redirected, "Редирект не должен происходить при коротком пароле"
+    assert not redirected
