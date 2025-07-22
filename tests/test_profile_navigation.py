@@ -6,20 +6,54 @@ from locators import MainPageLocators, LoginPageLocators, ProfilePageLocators
 def test_go_to_personal_account(driver):
     driver.get("https://stellarburgers.nomoreparties.site/")
 
-    # Клик по кнопке "Войти в аккаунт" на главной
     driver.find_element(*MainPageLocators.LOGIN_BUTTON).click()
 
-    # Заполнение формы логина
     WebDriverWait(driver, 5).until(EC.visibility_of_element_located(LoginPageLocators.EMAIL_INPUT)).send_keys(Credentials.email)
     driver.find_element(*LoginPageLocators.PASSWORD_INPUT).send_keys(Credentials.password)
     driver.find_element(*LoginPageLocators.LOGIN_BUTTON).click()
 
-    # Ожидание перехода после логина
     WebDriverWait(driver, 10).until(EC.presence_of_element_located(MainPageLocators.PERSONAL_ACCOUNT_LINK))
 
-    # Клик по "Личный кабинет"
     driver.find_element(*MainPageLocators.PERSONAL_ACCOUNT_LINK).click()
 
-    # Проверка, что открыта страница профиля
     WebDriverWait(driver, 5).until(EC.visibility_of_element_located(ProfilePageLocators.LOGOUT_BUTTON))
     assert "account/profile" in driver.current_url
+
+def test_go_from_profile_to_constructor(driver):
+    driver.get("https://stellarburgers.nomoreparties.site/")
+
+    driver.find_element(*MainPageLocators.LOGIN_BUTTON).click()
+
+    WebDriverWait(driver, 5).until(EC.visibility_of_element_located(LoginPageLocators.EMAIL_INPUT)).send_keys(Credentials.email)
+    driver.find_element(*LoginPageLocators.PASSWORD_INPUT).send_keys(Credentials.password)
+    driver.find_element(*LoginPageLocators.LOGIN_BUTTON).click()
+
+    WebDriverWait(driver, 10).until(EC.presence_of_element_located(MainPageLocators.PERSONAL_ACCOUNT_LINK))
+
+    driver.find_element(*MainPageLocators.PERSONAL_ACCOUNT_LINK).click()
+
+    WebDriverWait(driver, 5).until(EC.visibility_of_element_located(ProfilePageLocators.LOGOUT_BUTTON))
+
+    driver.find_element(*MainPageLocators.CONSTRUCTOR_BUTTON).click()
+
+    WebDriverWait(driver, 5).until(EC.url_to_be("https://stellarburgers.nomoreparties.site/"))
+    assert driver.current_url == "https://stellarburgers.nomoreparties.site/"
+
+def test_go_to_constructor_by_logo(driver):
+    driver.get("https://stellarburgers.nomoreparties.site/")
+
+    driver.find_element(*MainPageLocators.LOGIN_BUTTON).click()
+
+    WebDriverWait(driver, 5).until(EC.visibility_of_element_located(LoginPageLocators.EMAIL_INPUT)).send_keys(Credentials.email)
+    driver.find_element(*LoginPageLocators.PASSWORD_INPUT).send_keys(Credentials.password)
+    driver.find_element(*LoginPageLocators.LOGIN_BUTTON).click()
+
+    WebDriverWait(driver, 10).until(EC.presence_of_element_located(MainPageLocators.PERSONAL_ACCOUNT_LINK))
+    driver.find_element(*MainPageLocators.PERSONAL_ACCOUNT_LINK).click()
+
+    WebDriverWait(driver, 5).until(EC.visibility_of_element_located(ProfilePageLocators.LOGOUT_BUTTON))
+
+    driver.find_element(*MainPageLocators.LOGO_BUTTON).click()
+
+    WebDriverWait(driver, 5).until(EC.url_matches("https://stellarburgers.nomoreparties.site/"))
+    assert "stellarburgers.nomoreparties.site" in driver.current_url

@@ -24,7 +24,7 @@ class LoginPageLocators:
     REGISTER_LINK = (By.XPATH, "//a[@href='/register']")  # Ссылка на регистрацию
     FORGOT_PASSWORD_LINK = (By.XPATH, "//a[@href='/forgot-password']")  # Ссылка на восстановление пароля
 
-# Кнопка Выход из профиля
+# Кнопка Выход логаут
 class ProfilePageLocators:
     LOGOUT_BUTTON = (By.XPATH, "//button[text()='Выход']")
 
