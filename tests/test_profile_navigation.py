@@ -2,11 +2,12 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from data import Credentials
 from locators import MainPageLocators, LoginPageLocators
+from urls import Urls
 
 
 # Вспомогательная функция для авторизации
 def login(driver):
-    driver.get("https://stellarburgers.nomoreparties.site/")
+    driver.get(Urls.URL_MAIN_PAGE)
     driver.find_element(*MainPageLocators.LOGIN_BUTTON).click()
 
     WebDriverWait(driver, 5).until(
@@ -35,9 +36,9 @@ def test_go_from_profile_to_constructor(driver):
     driver.find_element(*MainPageLocators.CONSTRUCTOR_BUTTON).click()
 
     WebDriverWait(driver, 5).until(
-        EC.url_to_be("https://stellarburgers.nomoreparties.site/")
+        EC.url_to_be(Urls.URL_MAIN_PAGE)
     )
-    assert driver.current_url == "https://stellarburgers.nomoreparties.site/", \
+    assert driver.current_url == Urls.URL_MAIN_PAGE, \
         f"Ожидался переход на главную, но URL: {driver.current_url}"
 
 
@@ -48,8 +49,8 @@ def test_go_to_constructor_by_logo(driver):
     driver.find_element(*MainPageLocators.LOGO_BUTTON).click()
 
     WebDriverWait(driver, 5).until(
-        EC.url_to_be("https://stellarburgers.nomoreparties.site/")
+        EC.url_to_be(Urls.URL_MAIN_PAGE)
     )
-    assert driver.current_url == "https://stellarburgers.nomoreparties.site/", \
+    assert driver.current_url == Urls.URL_MAIN_PAGE, \
         f"Ожидался переход на главную, но URL: {driver.current_url}"
 

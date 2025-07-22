@@ -2,10 +2,11 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from data import Credentials
 from locators import MainPageLocators, LoginPageLocators, ProfilePageLocators
+from urls import Urls
 
 # Тест на выход из профиля
 def test_logout_from_profile(driver):
-    driver.get("https://stellarburgers.nomoreparties.site/")
+    driver.get(Urls.URL_MAIN_PAGE)
 
     driver.find_element(*MainPageLocators.LOGIN_BUTTON).click()
     WebDriverWait(driver, 5).until(EC.visibility_of_element_located(LoginPageLocators.EMAIL_INPUT)).send_keys(Credentials.email)
