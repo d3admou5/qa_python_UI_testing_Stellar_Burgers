@@ -13,7 +13,7 @@ def driver():
 
 # Фикстура с данными пользователя
 @pytest.fixture
-def test_user():
+def default_user():
     return {
         "email": Credentials.email,
         "password": Credentials.password,
