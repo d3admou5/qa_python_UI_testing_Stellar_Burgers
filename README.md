@@ -12,11 +12,14 @@
 -  Успешная регистрация с валидными данными — `test_successful_registration`
 -  Ошибка при вводе короткого пароля — `test_short_password_error`
 
-###  Вход
+###  Вход (Login)
 -  Вход через кнопку «Войти в аккаунт» на главной — `test_login_from_main_page`
 -  Вход через кнопку «Личный кабинет» — `test_login_from_personal_account_button`
 -  Вход через ссылку из формы регистрации — `test_login_from_register_page`
 -  Вход через ссылку из формы восстановления пароля — `test_login_from_forgot_password_page`
+
+### Выход (Logout)
+-  Успешный выход из аккаунта — `test_logout_from_profile`
 
 ###  Личный кабинет
 -  Переход по кнопке «Личный кабинет» — `test_go_to_personal_account`
