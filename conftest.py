@@ -8,7 +8,6 @@ def driver():
     options = webdriver.ChromeOptions()
     options.add_argument("--window-size=1280,1024")
     driver = webdriver.Chrome(options=options)
-    driver.implicitly_wait(10)  # можно изменить или убрать, если используешь WebDriverWait
     yield driver
     driver.quit()
 
