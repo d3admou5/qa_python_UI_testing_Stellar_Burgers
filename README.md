@@ -1,6 +1,7 @@
-# UI-тесты для сайта Stellar Burgers
+# Sprint_4
+## UI-тесты для сайта Stellar Burgers
 
-## 📌 Описание
+## Описание
 Набор автотестов на Python с использованием `Selenium` и `Pytest` для проверки ключевых сценариев UI сайта [stellarburgers.nomoreparties.site](https://stellarburgers.nomoreparties.site).
 
 ---
