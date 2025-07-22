@@ -1,6 +1,7 @@
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from locators import ConstructorPageLocators
+from urls import Urls
 
 # Функция для клика по вкладке и ожидания её активации
 def click_and_wait_for_tab(driver, tab_locator, expected_text, timeout=5):
@@ -19,7 +20,7 @@ def click_and_wait_for_tab(driver, tab_locator, expected_text, timeout=5):
 
 # Тест для проверки переключения между вкладками в конструкторе бургеров
 def test_constructor_tabs(driver):
-    driver.get("https://stellarburgers.nomoreparties.site/")
+    driver.get(Urls.URL_MAIN_PAGE)
 
     click_and_wait_for_tab(driver, ConstructorPageLocators.SAUCES_TAB, "Соусы")
     click_and_wait_for_tab(driver, ConstructorPageLocators.FILLINGS_TAB, "Начинки")

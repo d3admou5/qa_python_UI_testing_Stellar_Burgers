@@ -48,7 +48,7 @@ def test_login_from_register_page(driver):
 
 # Вход через кнопку в форме восстановления пароля
 def test_login_from_forgot_password_page(driver):
-    driver.get("https://stellarburgers.nomoreparties.site/forgot-password")
+    driver.get(Urls.URL_FORGOT_PASSWORD)
     driver.find_element(*RegisterPageLocators.LOGIN_LINK).click()  # переход на форму входа
 
     WebDriverWait(driver, 5).until(EC.visibility_of_element_located(LoginPageLocators.EMAIL_INPUT)).send_keys(Credentials.email)

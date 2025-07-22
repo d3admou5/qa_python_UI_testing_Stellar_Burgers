@@ -53,4 +53,3 @@ def test_go_to_constructor_by_logo(driver):
     )
     assert driver.current_url == Urls.URL_MAIN_PAGE, \
         f"Ожидался переход на главную, но URL: {driver.current_url}"
-

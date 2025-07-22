@@ -44,6 +44,7 @@ pip install -r requirements.txt
 ├── data.py                  # Статичные данные
 ├── user_generator.py        # Генерация случайных пользователей
 ├── conftest.py              # Фикстуры Pytest
+├── urls.py                  # Все URL'ы проекта
 ├── requirements.txt         # Зависимости
 ├── README.md                # Этот файл
 ```
