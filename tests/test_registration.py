@@ -4,6 +4,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
 from user_generator import generate_registration_data
 
+# Регистрация с валидными данными
 def test_successful_registration(driver):
     driver.get("https://stellarburgers.nomoreparties.site/register")
 
@@ -17,7 +18,7 @@ def test_successful_registration(driver):
     WebDriverWait(driver, 10).until(EC.url_contains("/login"))
     assert "/login" in driver.current_url
 
-
+# Регистрация с коротким паролем
 def test_short_password_error(driver):
     driver.get("https://stellarburgers.nomoreparties.site/register")
 

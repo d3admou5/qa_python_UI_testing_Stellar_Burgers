@@ -3,6 +3,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from data import Credentials
 from locators import MainPageLocators, LoginPageLocators, ProfilePageLocators
 
+# Тест на переход в личный кабинет
 def test_go_to_personal_account(driver):
     driver.get("https://stellarburgers.nomoreparties.site/")
 
@@ -19,6 +20,7 @@ def test_go_to_personal_account(driver):
     WebDriverWait(driver, 5).until(EC.visibility_of_element_located(ProfilePageLocators.LOGOUT_BUTTON))
     assert "account/profile" in driver.current_url
 
+# Тест на переход из профиля в конструктор
 def test_go_from_profile_to_constructor(driver):
     driver.get("https://stellarburgers.nomoreparties.site/")
 
@@ -39,6 +41,7 @@ def test_go_from_profile_to_constructor(driver):
     WebDriverWait(driver, 5).until(EC.url_to_be("https://stellarburgers.nomoreparties.site/"))
     assert driver.current_url == "https://stellarburgers.nomoreparties.site/"
 
+# Тест на переход в конструктор по логотипу
 def test_go_to_constructor_by_logo(driver):
     driver.get("https://stellarburgers.nomoreparties.site/")
 
