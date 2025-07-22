@@ -4,9 +4,11 @@ from locators import ConstructorPageLocators
 
 
 def click_and_wait_for_tab(driver, tab_locator, expected_text, timeout=5):
-    WebDriverWait(driver, timeout).until(
+    tab = WebDriverWait(driver, timeout).until(
         EC.element_to_be_clickable(tab_locator)
-    ).click()
+    )
+    driver.execute_script("arguments[0].scrollIntoView(true);", tab)
+    tab.click()
 
     WebDriverWait(driver, timeout).until(
         lambda d: d.find_element(*ConstructorPageLocators.ACTIVE_TAB).text.strip() == expected_text
