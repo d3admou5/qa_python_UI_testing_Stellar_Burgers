@@ -1,28 +1,22 @@
-from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+from locators import ConstructorPageLocators
+
+def wait_for_active_tab(driver, expected_text, timeout=5):
+    WebDriverWait(driver, timeout).until(
+        lambda d: d.find_element(*ConstructorPageLocators.ACTIVE_TAB).text == expected_text
+    )
 
 def test_constructor_tabs(driver):
     driver.get("https://stellarburgers.nomoreparties.site/")
 
-    wait = WebDriverWait(driver, 5)
+    # Клик на "Соусы" и ожидание
+    driver.find_element(*ConstructorPageLocators.SAUCES_TAB).click()
+    wait_for_active_tab(driver, "Соусы")
 
-    # Вкладки
-    buns_tab = wait.until(EC.element_to_be_clickable((By.XPATH, "//span[text()='Булки']")))
-    sauces_tab = driver.find_element(By.XPATH, "//span[text()='Соусы']")
-    fillings_tab = driver.find_element(By.XPATH, "//span[text()='Начинки']")
+    # Клик на "Начинки" и ожидание
+    driver.find_element(*ConstructorPageLocators.FILLINGS_TAB).click()
+    wait_for_active_tab(driver, "Начинки")
 
-    # Клик на "Соусы" и проверка
-    sauces_tab.click()
-    active_tab = driver.find_element(By.CLASS_NAME, "tab_tab_type_current__2BEPc")
-    assert active_tab.text == "Соусы"
-
-    # Клик на "Начинки" и проверка
-    fillings_tab.click()
-    active_tab = driver.find_element(By.CLASS_NAME, "tab_tab_type_current__2BEPc")
-    assert active_tab.text == "Начинки"
-
-    # Клик обратно на "Булки" и проверка
-    buns_tab.click()
-    active_tab = driver.find_element(By.CLASS_NAME, "tab_tab_type_current__2BEPc")
-    assert active_tab.text == "Булки"
+    # Клик на "Булки" и ожидание
+    driver.find_element(*ConstructorPageLocators.BUNS_TAB).click()
+    wait_for_active_tab(driver, "Булки")
