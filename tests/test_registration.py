@@ -16,7 +16,8 @@ def test_successful_registration(driver):
     driver.find_element(*RegistrationLocators.REGISTER_BUTTON).click()
 
     WebDriverWait(driver, 10).until(EC.url_contains("/login"))
-    assert "/login" in driver.current_url
+    assert "/login" in driver.current_url, \
+        f"После успешной регистрации ожидался переход на /login, но URL: {driver.current_url}"
 
 # Регистрация с коротким паролем
 def test_short_password_error(driver):
@@ -40,4 +41,4 @@ def test_short_password_error(driver):
     except TimeoutException:
         redirected = False
 
-    assert not redirected
+    assert not redirected, "Произошёл редирект на /login, хотя регистрация должна была провалиться"

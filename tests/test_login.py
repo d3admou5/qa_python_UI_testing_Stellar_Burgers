@@ -15,7 +15,8 @@ def test_login_from_main_page(driver):
     driver.find_element(*LoginPageLocators.LOGIN_BUTTON).click()
 
     WebDriverWait(driver, 10).until(EC.visibility_of_element_located(MainPageLocators.PERSONAL_ACCOUNT_LINK))
-    assert driver.current_url.startswith("https://stellarburgers.nomoreparties.site")
+    assert driver.find_element(*MainPageLocators.PERSONAL_ACCOUNT_LINK).is_displayed(), \
+        "Не отображается ссылка на личный кабинет после входа с главной страницы"
 
 
 # Вход через кнопку «Личный кабинет»
@@ -28,8 +29,8 @@ def test_login_from_personal_account_button(driver):
     driver.find_element(*LoginPageLocators.LOGIN_BUTTON).click()
 
     WebDriverWait(driver, 10).until(EC.visibility_of_element_located(MainPageLocators.PERSONAL_ACCOUNT_LINK))
-    assert driver.current_url.startswith("https://stellarburgers.nomoreparties.site")
-
+    assert driver.find_element(*MainPageLocators.PERSONAL_ACCOUNT_LINK).is_displayed(), \
+        "Не отображается ссылка на личный кабинет после входа через кнопку 'Личный кабинет'"
 
 # Вход через кнопку в форме регистрации
 def test_login_from_register_page(driver):
@@ -41,7 +42,8 @@ def test_login_from_register_page(driver):
     driver.find_element(*LoginPageLocators.LOGIN_BUTTON).click()
 
     WebDriverWait(driver, 10).until(EC.visibility_of_element_located(MainPageLocators.PERSONAL_ACCOUNT_LINK))
-    assert driver.current_url.startswith("https://stellarburgers.nomoreparties.site")
+    assert driver.find_element(*MainPageLocators.PERSONAL_ACCOUNT_LINK).is_displayed(), \
+        "Не отображается ссылка на личный кабинет после входа через форму регистрации"
 
 
 # Вход через кнопку в форме восстановления пароля
@@ -54,4 +56,5 @@ def test_login_from_forgot_password_page(driver):
     driver.find_element(*LoginPageLocators.LOGIN_BUTTON).click()
 
     WebDriverWait(driver, 10).until(EC.visibility_of_element_located(MainPageLocators.PERSONAL_ACCOUNT_LINK))
-    assert driver.current_url.startswith("https://stellarburgers.nomoreparties.site")
+    assert driver.find_element(*MainPageLocators.PERSONAL_ACCOUNT_LINK).is_displayed(), \
+        "Не отображается ссылка на личный кабинет после входа через форму восстановления пароля"

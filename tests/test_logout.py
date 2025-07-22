@@ -17,4 +17,4 @@ def test_logout_from_profile(driver):
     WebDriverWait(driver, 5).until(EC.visibility_of_element_located(ProfilePageLocators.LOGOUT_BUTTON)).click()
 
     WebDriverWait(driver, 5).until(EC.url_contains("/login"))
-    assert "/login" in driver.current_url
+    assert "/login" in driver.current_url, f"После выхода ожидался редирект на /login, но сейчас: {driver.current_url}"
