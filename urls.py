@@ -1,6 +1,8 @@
 class Urls:
-    URL_MAIN_PAGE = "https://stellarburgers.nomoreparties.site/"
-    URL_LOGIN = "https://stellarburgers.nomoreparties.site/login"
-    URL_PROFILE = "https://stellarburgers.nomoreparties.site/account/profile"
-    URL_REGISTER = "https://stellarburgers.nomoreparties.site/register"
-    URL_FORGOT_PASSWORD = "https://stellarburgers.nomoreparties.site/forgot-password"
+    BASE_URL = "https://stellarburgers.nomoreparties.site"
+
+    URL_MAIN_PAGE = f"{BASE_URL}/"
+    URL_LOGIN = f"{BASE_URL}/login"
+    URL_PROFILE = f"{BASE_URL}/account/profile"
+    URL_REGISTER = f"{BASE_URL}/register"
+    URL_FORGOT_PASSWORD = f"{BASE_URL}/forgot-password"

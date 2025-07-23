@@ -25,10 +25,9 @@
 -  Переход по кнопке «Личный кабинет» — `test_go_to_personal_account`
 -  Переход из профиля в конструктор по кнопке — `test_go_from_profile_to_constructor`
 -  Переход из профиля в конструктор по клику на логотип — `test_go_to_constructor_by_logo`
--  Выход из аккаунта — `test_logout_from_profile`
 
 ###  Конструктор
--  Переключение между вкладками: «Булки», «Соусы», «Начинки» — `test_constructor_tabs`
+-  Переключение между вкладками: «Булки», «Соусы», «Начинки» — `test_constructor_tab_switch`
 
 ---
 
@@ -43,12 +42,18 @@ pip install -r requirements.txt
 ## Структура проекта
 ```
 .
-├── tests/                   # Тесты
+├── tests/                   # UI-тесты
+│   ├── test_register.py
+│   ├── test_login.py
+│   ├── test_logout.py
+│   ├── test_profile.py
+│   └── test_constructor_tabs.py
 ├── locators.py              # Локаторы страниц
-├── data.py                  # Статичные данные
+├── data.py                  # Данные: логин/пароль и др.
 ├── user_generator.py        # Генерация случайных пользователей
-├── conftest.py              # Фикстуры Pytest
-├── urls.py                  # Все URL'ы проекта
-├── requirements.txt         # Зависимости
-├── README.md                # Этот файл
+├── conftest.py              # Фикстуры и общие настройки
+├── urls.py                  # Все URL'ы проекта (используется BASE_URL)
+├── requirements.txt         # Зависимости проекта
+└── README.md                # Документация проекта
+
 ```
