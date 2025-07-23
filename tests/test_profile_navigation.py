@@ -3,6 +3,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from locators import MainPageLocators
 from urls import Urls
 
+
 class TestNavigationFromAccount:
 
 # Тест на переход в личный кабинет через кнопку "Личный кабинет" в хедере

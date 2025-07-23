@@ -36,21 +36,24 @@
 Установи зависимости:
 
 ```bash
-pip install -r requirements.txt
+  pip install -r requirements.txt
 ```
 
 ## Структура проекта
 ```
 .
 ├── tests/                   # UI-тесты
-│   ├── test_register.py
-│   ├── test_login.py
-│   ├── test_logout.py
-│   ├── test_profile.py
+│   ├── test_register.py  
+│   ├── test_login.py    
+│   ├── test_logout.py     
+│   ├── test_profile.py 
 │   └── test_constructor_tabs.py
+├── helper/ 
+│   ├── constructor.py       # Функция для клика по вкладке и ожидания её активации
+│   ├── registration.py      # Функция для заполнения формы регистрациии
+│   └── user_generator.py    # Генерация случайных пользователей
 ├── locators.py              # Локаторы страниц
 ├── data.py                  # Данные: логин/пароль и др.
-├── user_generator.py        # Генерация случайных пользователей
 ├── conftest.py              # Фикстуры и общие настройки
 ├── urls.py                  # Все URL'ы проекта (используется BASE_URL)
 ├── requirements.txt         # Зависимости проекта

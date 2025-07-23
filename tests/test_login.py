@@ -18,7 +18,6 @@ def test_login_from_main_page(driver):
     assert driver.find_element(*MainPageLocators.PERSONAL_ACCOUNT_LINK).is_displayed(), \
         "Не отображается ссылка на личный кабинет после входа с главной страницы"
 
-
 # Вход через кнопку «Личный кабинет»
 def test_login_from_personal_account_button(driver):
     driver.get(Urls.URL_MAIN_PAGE)

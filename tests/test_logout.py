@@ -4,6 +4,7 @@ from data import Credentials
 from locators import MainPageLocators, LoginPageLocators, ProfilePageLocators
 from urls import Urls
 
+
 # Тест на выход из профиля
 def test_logout_from_profile(driver):
     driver.get(Urls.URL_MAIN_PAGE)

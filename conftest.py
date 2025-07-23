@@ -33,4 +33,3 @@ def login(driver):
     WebDriverWait(driver, 10).until(
         EC.presence_of_element_located(MainPageLocators.PERSONAL_ACCOUNT_LINK)
     )
-    return driver
