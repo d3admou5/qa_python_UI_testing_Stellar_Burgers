@@ -7,7 +7,6 @@ from helpers.user_generator import generate_registration_data
 from urls import Urls
 from helpers.registration_form import fill_registration_form
 
-
 # Тест для проверки регистрации пользователя
 class TestRegistration:
     def test_successful_registration(self, driver):
@@ -16,6 +15,7 @@ class TestRegistration:
         fill_registration_form(driver, name, email, password)
 
         WebDriverWait(driver, 10).until(EC.url_contains("/login"))
+
         assert "/login" in driver.current_url, \
             f"После успешной регистрации ожидался переход на /login, но URL: {driver.current_url}"
 
@@ -26,8 +26,8 @@ class TestRegistration:
         fill_registration_form(driver, name, email, password)
 
         error_element = WebDriverWait(driver, 5).until(
-            EC.visibility_of_element_located(RegistrationLocators.ERROR_HINT)
-        )
+            EC.visibility_of_element_located(RegistrationLocators.ERROR_HINT))
+
         assert "Некорректный пароль" in error_element.text
 
         with pytest.raises(TimeoutException):
