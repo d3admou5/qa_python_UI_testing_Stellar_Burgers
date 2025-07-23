@@ -8,4 +8,5 @@ def fill_registration_form(driver, name, email, password):
     driver.find_element(*RegistrationLocators.REGISTER_BUTTON).click()
 
 
-# Эта функция вынесена в отдельный файл, чтобы не дублировать код заполнения формы
+# Вынес функцию fill_registration_form в отдельный файл helpers/registration_form.py.
+# В рамках проекта у нас один тест, который использует эту функцию два раза.

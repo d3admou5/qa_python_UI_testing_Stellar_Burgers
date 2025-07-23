@@ -13,3 +13,6 @@ class TestConstructorTabs:
     def test_constructor_tab_switch(self, driver, tab_locator, expected_text):  # Тест переключения вкладок конструктора
         driver.get(Urls.URL_MAIN_PAGE)
         click_and_wait_for_tab(driver, tab_locator, expected_text)
+
+
+# Отделил функцию в отдельный файл helpers/constructor_actions.py. Чтобы улучшить читаемость и переиспользуемость кода

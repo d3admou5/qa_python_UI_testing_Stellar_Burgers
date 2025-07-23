@@ -32,3 +32,6 @@ class TestRegistration:
 
         with pytest.raises(TimeoutException):
             WebDriverWait(driver, 3).until(EC.url_changes(driver.current_url))
+
+
+# Отделил функцию в отдельный файл helpers/registration_form.py. Чтобы улучшить читаемость
