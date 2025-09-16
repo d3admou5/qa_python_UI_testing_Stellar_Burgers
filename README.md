@@ -1,4 +1,3 @@
-# Sprint_5
 ## UI-тесты для сайта Stellar Burgers
 
 ## Описание
